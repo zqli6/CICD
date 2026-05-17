@@ -12,8 +12,8 @@
 
 4. 使用本文件
 ```
-kubectl apply -f https://github.com/zqli6/k8s/raw/refs/heads/main/install_yaml/gitlab/components.yaml  
-kubectl apply -f https://github.com/zqli6/k8s/raw/refs/heads/main/install_yaml/gitlab/cert-manager.yaml  
-kubectl apply -f https://github.com/zqli6/k8s/raw/refs/heads/main/install_yaml/gitlab/deploy.yaml  
-kubectl apply -f https://github.com/zqli6/k8s/raw/refs/heads/main/install_yaml/gitlab/gitlab-operator-kubernetes-2.9.0.yaml
+kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/gitlab/components.yaml  
+kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/gitlab/cert-manager.yaml  
+kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/gitlab/deploy.yaml  
+kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/gitlab/gitlab-operator-kubernetes-2.9.0.yaml
 ```
