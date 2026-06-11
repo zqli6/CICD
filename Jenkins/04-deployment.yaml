@@ -20,7 +20,8 @@ spec:
       containers:
         - name: jenkins
           #image: jenkins/jenkins:lts
-          image: registry.cn-beijing.aliyuncs.com/wangxiaochun/jenkins:2.541.2-jdk21
+          #image: registry.cn-beijing.aliyuncs.com/wangxiaochun/jenkins:2.541.2-jdk21
+          image: swr.cn-southwest-2.myhuaweicloud.com/zqli/docker.io/jenkins/jenkins:2.541.2-jdk21
           resources:
             limits:
               memory: "2Gi"
