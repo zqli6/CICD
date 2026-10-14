@@ -3,16 +3,16 @@
 2、官  网：https://argo-cd.readthedocs.io/
 
 # 部署
-1. 创建namespace  
+## 1. 创建namespace  
 ```
 kubectl create ns argocd
 ```
-2. 应用清单  
+## 2. 应用清单  
 ```
 kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/argocd/manifest/argocd-v3.5.5-lzq.yaml --server-side --force-conflicts -n argocd
 ```
 
-3. pull secret patch  
+## 3. pull secret patch  
 参考：https://gitee.com/zqli6/HA-cluster/blob/master/SWR-AUTH.md#%E5%A4%9A%E4%B8%AApod%E5%90%8C%E6%97%B6
 ```
 # 1. 创建 Secret（存储 SWR 登录凭据）需登录swr 更新
@@ -32,6 +32,13 @@ kubectl get pod -n argocd -o jsonpath='{range .items[*]}{.spec.serviceAccountNam
     done
 # 3. 删除pod重新拉取镜像
 kubectl delete pod -n argocd --all
+```
+## 4. 登录  
+访问：https://ip:30443  
+账号：admin  
+密码：
+```
+kubectl get secrets -n argocd argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d
 ```
 
 # 优化说明
