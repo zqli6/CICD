@@ -17,4 +17,32 @@ swr.cn-southwest-2.myhuaweicloud.com/zqli/quay.io/argoproj/argocd:v3.5.5
 swr.cn-southwest-2.myhuaweicloud.com/zqli/redis:7.2.5
 ```
 ## 2 配置  
-1. 修改argocd-server的service为NodePort:30080及30443
+### 1. 修改argocd-server的service为NodePort:30080及30443
+```
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+  name: argocd-server
+spec:
+  # 默认没有type，默认为ClusterIP
+  type: NodePort       # lzq清单优化
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30080    # lzq优化
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30443    # lzq优化
+  selector:
+    app.kubernetes.io/name: argocd-server
+---
+```
