@@ -13,8 +13,9 @@ kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/argocd/manifest/argocd-v3
 ```
 
 3. pull secret patch  
+参考：https://gitee.com/zqli6/HA-cluster/blob/master/SWR-AUTH.md#%E5%A4%9A%E4%B8%AApod%E5%90%8C%E6%97%B6
 ```
-# 1. 创建 Secret（存储 SWR 登录凭据）
+# 1. 创建 Secret（存储 SWR 登录凭据）需登录swr 更新
 kubectl create secret docker-registry swr-auth -n ai \
   --docker-server=swr.cn-southwest-2.myhuaweicloud.com \
   --docker-username='cn-southwest-2@HST3WBRU8484RY3AGAFX' \
@@ -29,6 +30,8 @@ kubectl get pod -n argocd -o jsonpath='{range .items[*]}{.spec.serviceAccountNam
       kubectl patch serviceaccount "$sa" -n argocd \
         -p '{"imagePullSecrets": [{"name": "swr-auth"}]}'
     done
+# 3. 删除pod重新拉取镜像
+kubectl delete pod -n argocd --all
 ```
 
 # 优化说明
