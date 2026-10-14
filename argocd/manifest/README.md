@@ -16,7 +16,7 @@ kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/argocd/manifest/argocd-v3
 参考：https://gitee.com/zqli6/HA-cluster/blob/master/SWR-AUTH.md#%E5%A4%9A%E4%B8%AApod%E5%90%8C%E6%97%B6
 ```
 # 1. 创建 Secret（存储 SWR 登录凭据）需登录swr 更新
-kubectl create secret docker-registry swr-auth -n ai \
+kubectl create secret docker-registry swr-auth -n argocd \
   --docker-server=swr.cn-southwest-2.myhuaweicloud.com \
   --docker-username='cn-southwest-2@HST3WBRU8484RY3AGAFX' \
   --docker-password='8eb15bd0873dc162d8be3057ba45653764d344d3926484c1bbf1e1836b2a01cd'
