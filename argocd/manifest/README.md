@@ -2,6 +2,16 @@
 1、GitHub：https://github.com/argoproj/argo-cd/  
 2、官  网：https://argo-cd.readthedocs.io/
 
+# 部署
+1. 创建namespace  
+```
+kubectl create ns argocd
+```
+2. 应用清单  
+```
+kubectl apply -f https://gitee.com/zqli6/cicd/raw/main/argocd/manifest/argocd-v3.5.5-lzq.yaml --server-side --force-conflicts -n argocd
+```
+
 # 优化说明
 ## 1 镜像  
 ```
