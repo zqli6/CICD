@@ -1,5 +1,5 @@
 # 官方链接  
-1、GitHub：https://github.com/argoproj/argo-cd/
+1、GitHub：https://github.com/argoproj/argo-cd/  
 2、官  网：https://argo-cd.readthedocs.io/
 
 # 优化说明
