@@ -43,15 +43,15 @@ kubectl get secrets -n argocd argocd-initial-admin-secret -o jsonpath='{.data.pa
 
 ## 5. 密码重置
 1. 清空 argocd-secret 中的密码字段
-bash```
+```bash
 kubectl -n argocd patch secret argocd-secret -p '{"data": {"admin.password": null, "admin.passwordMtime": null}}'
 ```
 2. 重启 argocd-server 触发重新生成
-bash```
+```bash
 kubectl -n argocd rollout restart deployment argocd-server
 ```
 3. 等待 Pod 就绪后，获取新生成的初始密码
-bash```
+```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
 
