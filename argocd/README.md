@@ -1,3 +1,17 @@
+# 登录
+访问：https://ip:30443  
+账号：admin  
+密码：
+```
+kubectl get secrets -n argocd argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d
+```
+
+# 密码重置
+```
+kubectl -n argocd exec deployment/argocd-server -- argocd admin initial-password reset
+```
+
+
 # Argo CD 应用部署指南：Git 仓库、认证、Application 与 ApplicationSet
 
 本指南适用于 **Argo CD v2.x** 稳定版本，覆盖从 Git 仓库规划到 Webhook 触发的完整部署流程。
